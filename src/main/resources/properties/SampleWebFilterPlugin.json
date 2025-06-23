@@ -1,0 +1,39 @@
+[
+    {
+        "title" : "Sample Web Filter",
+        "properties" : [{
+            "name" : "url",
+            "label" : "@@web.filter.url.label@@",
+            "description" : "@@web.filter.url.desc@@",
+            "type" : "grid",
+            "columns" : [{
+                "key" : "redirectUrl",
+                "label" : "@@web.filter.redirectUrl.label@@",
+                "description": "@@web.filter.redirectUrl.desc@@",
+                "required" : "True"
+            },
+            {
+                "key" : "matchUrl",
+                "label" : "@@web.filter.matchUrl.label@@",
+                "description" : "@@web.filter.matchUrl.desc@@",
+                "required" : "True"
+            },
+            {
+                "key" : "passParameter",
+                "label" : "@@web.filter.parameter.label@@",
+                "type" : "truefalse",
+                "false_value" : "false",
+                "true_value" : "true"
+            },
+            {
+                "key" : "matchParameter",
+                "label" : "@@web.filter.matchParameter.label@@"
+            },
+            {
+                "key" : "redirectParameter",
+                "label" : "@@web.filter.redirectParameter.label@@"
+            }]
+        }]
+    }
+]
+
