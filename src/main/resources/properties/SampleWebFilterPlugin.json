@@ -2,36 +2,55 @@
     {
         "title" : "Sample Web Filter",
         "properties" : [{
-            "name" : "url",
+            "name" : "urlRepeater",
             "label" : "@@web.filter.url.label@@",
             "description" : "@@web.filter.url.desc@@",
-            "type" : "grid",
-            "columns" : [{
-                "key" : "redirectUrl",
+            "type" : "repeater",
+            "fields" : [{
+                "name" : "redirectUrl",
                 "label" : "@@web.filter.redirectUrl.label@@",
                 "description": "@@web.filter.redirectUrl.desc@@",
+                "type" : "textfield",
                 "required" : "True"
             },
             {
-                "key" : "matchUrl",
+                "name" : "matchUrl",
                 "label" : "@@web.filter.matchUrl.label@@",
                 "description" : "@@web.filter.matchUrl.desc@@",
+                "type" : "textfield",
                 "required" : "True"
             },
             {
-                "key" : "passParameter",
+                "name" : "enabledRoles",
+                "label" : "@@web.filter.enabledRoles.label@@",
+                "type" : "multiselect",
+                "options_ajax" : "[CONTEXT_PATH]/web/json/plugin/org.joget.joget82.SampleWebFilterPlugin/service?action=getRoles"
+            },
+            {
+                "name" : "passParameter",
                 "label" : "@@web.filter.parameter.label@@",
-                "type" : "truefalse",
-                "false_value" : "false",
-                "true_value" : "true"
+                "type" : "checkbox",
+                "options": [{
+                    "value": "true",
+                    "label": ""
+                }]
             },
             {
-                "key" : "matchParameter",
-                "label" : "@@web.filter.matchParameter.label@@"
-            },
-            {
-                "key" : "redirectParameter",
-                "label" : "@@web.filter.redirectParameter.label@@"
+                "name" : "gridParameter",
+                "type" : "grid",
+                "control_field" : "passParameter",
+                "control_value" : "true",
+                "required" : "true",
+                "columns" : [{
+                    "key" : "matchParameter",
+                    "label" : "@@web.filter.matchParameter.label@@",
+                    "required" : "true"
+                },
+                {
+                    "key" : "redirectParameter",
+                    "label" : "@@web.filter.redirectParameter.label@@",
+                    "required" : "true"
+                }]
             }]
         }]
     }
