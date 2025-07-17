@@ -131,7 +131,9 @@ public class SampleWebFilterPlugin extends PluginWebFilterAbstract implements Pl
                 //httpresponse.getWriter().write(html);
                 //httpresponse.setContentType("text/html;charset=UTF-8");
                 if (isForward(redirectUrl, httprequest)) {
-                    LogUtil.info(getClassName(), "is forwarded to " + redirectUrl);
+                    if (getPropertyString("debug").equals("true")) {
+                        LogUtil.info(getClassName(), "is forwarded to " + redirectUrl);
+                    }
                     String forwardUrl = redirectUrl.substring(httprequest.getContextPath().length());
                     httprequest.getRequestDispatcher(forwardUrl).forward(httprequest, httpresponse);
                 } else {
@@ -139,7 +141,9 @@ public class SampleWebFilterPlugin extends PluginWebFilterAbstract implements Pl
                         String scheme = httprequest.getScheme();
                         redirectUrl = scheme + "://" + redirectUrl;
                     }
-                    LogUtil.info(getClassName(), "is redirected to " + redirectUrl);
+                    if (getPropertyString("debug").equals("true")) {
+                        LogUtil.info(getClassName(), "is redirected to " + redirectUrl);
+                    }
                     httpresponse.sendRedirect(redirectUrl);
                 }
                 return;

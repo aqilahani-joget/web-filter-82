@@ -2,6 +2,15 @@
     {
         "title" : "Sample Web Filter",
         "properties" : [{
+            "name" : "debug",
+            "label" : "@@web.filter.debug.label@@",
+            "type" : "checkbox",
+            "options": [{
+                "value": "true",
+                "label": ""
+            }]
+        },
+        {
             "name" : "urlRepeater",
             "label" : "@@web.filter.url.label@@",
             "description" : "@@web.filter.url.desc@@",
